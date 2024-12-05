@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,6 +23,7 @@ public class OrderController {
 
     private  OrderProducer orderProducer;
 
+    @PostMapping
     public ResponseEntity<String> createOrder(@RequestBody Order order){
         try{
             orderProducer.sendOrder(order);
